@@ -27,6 +27,7 @@ class ComposerStaticInit38bba13e60481f46ccfd64f8f1c031d1
         'Sisfin\\Controllers\\UserController' => __DIR__ . '/../..' . '/src/Controllers/UserController.php',
         'Sisfin\\Models\\User' => __DIR__ . '/../..' . '/src/Models/User.php',
         'Sisfin\\Router' => __DIR__ . '/../..' . '/src/Router.php',
+        'Sisfin\\Util\\TipoPessoa' => __DIR__ . '/../..' . '/src/Util/TipoPessoa.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

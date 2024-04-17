@@ -12,4 +12,5 @@ return array(
     'Sisfin\\Controllers\\UserController' => $baseDir . '/src/Controllers/UserController.php',
     'Sisfin\\Models\\User' => $baseDir . '/src/Models/User.php',
     'Sisfin\\Router' => $baseDir . '/src/Router.php',
+    'Sisfin\\Util\\TipoPessoa' => $baseDir . '/src/Util/TipoPessoa.php',
 );
