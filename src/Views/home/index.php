@@ -3,12 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Lista de usuários</title>
+    <title>SisFin</title>
 </head>
 
 <body>
     <h1>.:| SisFin - Sistema de Gestão Financeira |:.</h1>
-    <h4><a href="/cliente">Lista de usuários</a></h4>
+    <h4>[<a href="/cliente">Lista de Clientes</a>]</h4>
+    <h4>[<a href="/fornecedor">Lista de Fornecedores</a>]</h4>
+    <h4>[<a href="/produto">Lista de Produtos</a>]</h4>
 </body>
 
 </html>
