@@ -67,5 +67,12 @@ class Cliente
         $this->_email = $email;
         return $this;
     }
+    public static function getAll(): array{
+        $lstClientes = [];
 
+        $lstClientes[]=new Cliente(1,'João das Dores', 'jodor@example.com',TipoPessoa::PESSOA_FISICA);
+        $lstClientes[]=new Cliente(2,'Maria Atanazia', 'mata@example.com',TipoPessoa::PESSOA_JURIDICA);
+        $lstClientes[]=new Cliente(3,'Carlota Richio', 'carris@example.com',TipoPessoa::PESSOA_FISICA);
+        return $lstClientes;
+    }
 }
