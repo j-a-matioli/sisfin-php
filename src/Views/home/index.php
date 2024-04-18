@@ -8,7 +8,7 @@
 
 <body>
     <h1>.:| SisFin - Sistema de Gestão Financeira |:.</h1>
-    <h4><a href="/user">Lista de usuários</a></h4>
+    <h4><a href="/cliente">Lista de usuários</a></h4>
 </body>
 
 </html>
