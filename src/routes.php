@@ -1,5 +1,4 @@
 <?php
-
 use Sisfin\Router;
 use Sisfin\Controllers\ClienteController;
 use Sisfin\Controllers\ProdutoController;
