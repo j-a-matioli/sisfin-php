@@ -68,14 +68,4 @@ class Fornecedor
         $this->_email = $email;
         return $this;
     }
-
-    public static function getAll(): array{
-        $lstFornecedores = [];
-
-        $lstFornecedores[] = new Fornecedor(1, TipoPessoa::PESSOA_JURIDICA,'Supermercado Catiloi', 'sucata@example.com');
-        $lstFornecedores[] = new Fornecedor(2,TipoPessoa::PESSOA_JURIDICA,'RR Parafusos', 'rr@example.com');
-        $lstFornecedores[] = new Fornecedor(3,TipoPessoa::PESSOA_FISICA,'Carol Matioli', 'kk@example.com');
-
-        return $lstFornecedores;
-    }
 }

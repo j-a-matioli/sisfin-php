@@ -11,14 +11,6 @@ class ItemVenda
     private float $_desconto;
     private float $_preco;
 
-    /**
-     * @param int $_id
-     * @param Venda $_venda
-     * @param Produto $_produto
-     * @param float $_quantidade
-     * @param float $_desconto
-     * @param float $_preco
-     */
     public function __construct(int $_id, Venda $_venda, Produto $_produto, float $_quantidade, float $_desconto, float $_preco)
     {
         $this->_id = $_id;

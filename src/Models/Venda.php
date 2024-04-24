@@ -16,14 +16,7 @@ class Venda
     private float $_valorTotal;
     private ItemVenda $_itensVenda;
 
-    /**
-     * @param int $_id
-     * @param DateTime $_instante
-     * @param string $_descricao
-     * @param float $_desconto
-     * @param float $_valorTotal
-     */
-    public function __construct(int $_id, DateTime $_instante, string $_descricao, float $_desconto, float $_valorTotal,Cliente $_cliente)
+     public function __construct(int $_id, DateTime $_instante, string $_descricao, float $_desconto, float $_valorTotal,Cliente $_cliente)
     {
         $this->_id = $_id;
         $this->_cliente = $_cliente;
@@ -99,22 +92,6 @@ class Venda
     {
         $this->_valorTotal = $valorTotal;
         return $this;
-    }
-
-    public static function getAll(): array{
-        $cl1=new Cliente(1,'João das Dores', 'jodor@example.com',TipoPessoa::PESSOA_FISICA);
-        $cl2=new Cliente(2,'Maria Atanazia', 'mata@example.com',TipoPessoa::PESSOA_JURIDICA);
-        $cl3=new Cliente(3,'Carlota Richio', 'carris@example.com',TipoPessoa::PESSOA_FISICA);
-
-        $now =  new DateTime();
-
-        $lstVendas = [];
-        $lstVendas[] = new Venda(1, $now,"Consumidor", 0, 199.90, $cl1);
-        $lstVendas[] = new Venda(2, $now,"Consumidor ", 0, 35.78, $cl1);
-        $lstVendas[] = new Venda(3, $now,"Consumidor", 0, 265.99, $cl2);
-        $lstVendas[] = new Venda(4, $now,"Consumidor", 0, 1130.70, $cl3);
-
-        return $lstVendas;
     }
 
 }
