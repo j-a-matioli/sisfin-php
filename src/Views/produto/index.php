@@ -7,7 +7,7 @@
 <body>
     <h1>.:| Lista de Produtos |:.</h1>
          <?php foreach ($produtos as $produto): ?>
-            <h4><?= $produto->getNome() ?> | <?= $produto->getFornecedor()->getNome() ?>  | <?= $produto->getPreco() ?></h4>
+            <h4><?= $produto->getId() ?> | <?= $produto->getNome() ?> | <?= $produto->getFornecedor()->getNome() ?>  | <?= $produto->getPreco() ?></h4>
         <?php endforeach; ?>
     <br>
     <a href="/">Home</a>

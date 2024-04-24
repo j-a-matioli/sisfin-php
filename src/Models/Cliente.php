@@ -4,7 +4,7 @@ namespace Sisfin\Models;
 
 use Sisfin\Util\TipoPessoa;
 
-class Cliente
+ class Cliente
 {
     private int $_id;
     private TipoPessoa $_tipoPessoa;
