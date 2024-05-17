@@ -19,8 +19,9 @@ class ClienteController  extends Controller
         return $this->clienteRepository->getAll();
     }
 
-    public function getById(int $id): array{
-        return $this->clienteRepository->getById($id);
+    public function getById($id):array{
+         $result = $this->clienteRepository->getById($id);
+        return $result;
     }
 
     public function index(): void
@@ -28,5 +29,9 @@ class ClienteController  extends Controller
         $this->render('cliente/index', ['clientes' => $this->getAll()]);
     }
 
+    public function findByClienteId(){
+        $id = $_GET["id"];
+        $this->render('cliente/index', ['clientes' =>  $this->getById($id)]);
+    }
 
 }

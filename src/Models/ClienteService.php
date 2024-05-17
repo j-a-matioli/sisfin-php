@@ -19,7 +19,6 @@ class ClienteService
 
     public function getAll(): array{
         try{
-            $sql = "Select * from cliente";
             $con = connectDB();
             $sql = 'SELECT * FROM cliente';
 
@@ -33,13 +32,26 @@ class ClienteService
     }
 
     public function getById(int $id): array{
-        $filtro = array();
+//        $filtro = array();
+//
+//        $filtro = array_filter($this->clienteRepository, function($cliente) use ($id){
+//            return $cliente->getId()==$id;
+//        });
+//
+//        return $filtro;
 
-        $filtro = array_filter($this->clienteRepository, function($cliente) use ($id){
-            return $cliente->getId()==$id;
-        });
+        try{
+            $con = connectDB();
+            $sql = 'SELECT * FROM cliente WHERE id=:id';
 
-        return $filtro;
+            $statement = $con->prepare($sql);
+            $statement->execute([':id' => $id]);
+            $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
+            return $result;
+        }catch(\PDOException $e){
+            return array();
+        }
+
     }
 
     public function getByClienteId(int $id): array{
