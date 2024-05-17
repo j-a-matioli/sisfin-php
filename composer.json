@@ -4,7 +4,9 @@
     "autoload": {
         "psr-4": {
             "Sisfin\\": "src/"
-        }
+        },
+        "files": ["src/include/config.php","src/include/connect.php"]
+
     },
     "authors": [
         {

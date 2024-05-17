@@ -18,8 +18,18 @@ class ClienteService
     }
 
     public function getAll(): array{
+        try{
+            $sql = "Select * from cliente";
+            $con = connectDB();
+            $sql = 'SELECT * FROM cliente';
 
-        return $this->clienteRepository;
+            $statement = $con->prepare($sql);
+            $statement->execute();
+            $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
+            return $result;
+        }catch(\PDOException $e){
+             return array();
+        }
     }
 
     public function getById(int $id): array{
