@@ -6,10 +6,6 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit38bba13e60481f46ccfd64f8f1c031d1
 {
-    public static $files = array (
-        '73c7bb7f2d725fa654327f67f046a30d' => __DIR__ . '/../..' . '/src/include/config.php',
-    );
-
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
@@ -27,17 +23,10 @@ class ComposerStaticInit38bba13e60481f46ccfd64f8f1c031d1
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Sisfin\\Controller' => __DIR__ . '/../..' . '/src/Controller.php',
-        'Sisfin\\Controllers\\ClienteController' => __DIR__ . '/../..' . '/src/Controllers/ClienteController.php',
-        'Sisfin\\Controllers\\FornecedorController' => __DIR__ . '/../..' . '/src/Controllers/FornecedorController.php',
         'Sisfin\\Controllers\\HomeController' => __DIR__ . '/../..' . '/src/Controllers/HomeController.php',
-        'Sisfin\\Controllers\\ProdutoController' => __DIR__ . '/../..' . '/src/Controllers/ProdutoController.php',
         'Sisfin\\Controllers\\UserController' => __DIR__ . '/../..' . '/src/Controllers/UserController.php',
-        'Sisfin\\Models\\Cliente' => __DIR__ . '/../..' . '/src/Models/Cliente.php',
-        'Sisfin\\Models\\Fornecedor' => __DIR__ . '/../..' . '/src/Models/Fornecedor.php',
-        'Sisfin\\Models\\Produto' => __DIR__ . '/../..' . '/src/Models/Produto.php',
         'Sisfin\\Models\\User' => __DIR__ . '/../..' . '/src/Models/User.php',
         'Sisfin\\Router' => __DIR__ . '/../..' . '/src/Router.php',
-        'Sisfin\\Util\\Connection' => __DIR__ . '/../..' . '/src/Util/Connection.php',
         'Sisfin\\Util\\TipoPessoa' => __DIR__ . '/../..' . '/src/Util/TipoPessoa.php',
     );
 

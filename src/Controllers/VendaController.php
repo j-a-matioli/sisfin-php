@@ -3,12 +3,9 @@
 namespace Sisfin\Controllers;
 
 use Sisfin\Controller;
-use Sisfin\Models\Fornecedor;
-use Sisfin\Models\Produto;
 use Sisfin\Models\ProdutoService;
-use Sisfin\Util\TipoPessoa;
 
-class ProdutoController extends Controller
+class VendaController extends  Controller
 {
     private ProdutoService $produtoRepository;
 
@@ -36,4 +33,5 @@ class ProdutoController extends Controller
         $lstProduto = $this->produtoRepository->getByFornecedorId($idFornecedor);
         $this->render('produto/index', ['produtos' => $lstProduto]);
     }
+
 }
