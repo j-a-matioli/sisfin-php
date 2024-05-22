@@ -99,7 +99,7 @@ class Produto
     }
 //--------------------------------------------
     public static function getAll(): array{
-        $lstProdutos = [];
+        $lstProdutos = array();
         $f1 = new Fornecedor(1, TipoPessoa::PESSOA_JURIDICA, 'Supermercado Catiloi', 'sucata@example.com');
         $f2 = new Fornecedor(2, TipoPessoa::PESSOA_JURIDICA, 'RR Parafusos', 'rr@example.com');
         $f3 = new Fornecedor(3, TipoPessoa::PESSOA_FISICA, 'Carol Matioli', 'kk@example.com');

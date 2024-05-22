@@ -2,7 +2,9 @@
 
 namespace Sisfin\Models;
 
+use Sisfin\Util\Connection;
 use Sisfin\Util\TipoPessoa;
+use \PDO;
 
 class Cliente
 {
@@ -68,11 +70,22 @@ class Cliente
         return $this;
     }
     public static function getAll(): array{
-        $lstClientes = [];
+
+        try{
+            $cn = Connection::make();
+            $sql = "SELECT * FROM cliente";
+            $result = $cn->query($sql);
+            return $result->fetchAll(PDO::FETCH_ASSOC);
+        }catch(\PDOException $ex){
+            return array(null);
+        }
+/*
+        $lstClientes = array();
 
         $lstClientes[]=new Cliente(1,'João das Dores', 'jodor@example.com',TipoPessoa::PESSOA_FISICA);
         $lstClientes[]=new Cliente(2,'Maria Atanazia', 'mata@example.com',TipoPessoa::PESSOA_JURIDICA);
         $lstClientes[]=new Cliente(3,'Carlota Richio', 'carris@example.com',TipoPessoa::PESSOA_FISICA);
         return $lstClientes;
+*/
     }
 }

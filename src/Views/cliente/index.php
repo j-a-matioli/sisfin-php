@@ -7,7 +7,7 @@
 <body>
     <h1>.:| Lista de Clientes |:.</h1>
          <?php foreach ($clientes as $cliente): ?>
-            <h4><?= $cliente->getNome() ?> (<?= $cliente->getEmail() ?>) - <?= $cliente->getTipoPessoa()->value ?></h4>
+            <h4><?= $cliente["nome"] ?> | <?= $cliente["email"] ?> | <?= $cliente["tipopessoa"] ?></h4>
         <?php endforeach; ?>
     <br>
     <a href="/">Home</a>

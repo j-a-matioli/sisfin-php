@@ -70,7 +70,7 @@ class Fornecedor
     }
 
     public static function getAll(): array{
-        $lstFornecedores = [];
+        $lstFornecedores = array();
 
         $lstFornecedores[] = new Fornecedor(1, TipoPessoa::PESSOA_JURIDICA,'Supermercado Catiloi', 'sucata@example.com');
         $lstFornecedores[] = new Fornecedor(2,TipoPessoa::PESSOA_JURIDICA,'RR Parafusos', 'rr@example.com');

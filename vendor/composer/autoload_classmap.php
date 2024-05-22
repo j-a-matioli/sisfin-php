@@ -8,9 +8,16 @@ $baseDir = dirname($vendorDir);
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Sisfin\\Controller' => $baseDir . '/src/Controller.php',
+    'Sisfin\\Controllers\\ClienteController' => $baseDir . '/src/Controllers/ClienteController.php',
+    'Sisfin\\Controllers\\FornecedorController' => $baseDir . '/src/Controllers/FornecedorController.php',
     'Sisfin\\Controllers\\HomeController' => $baseDir . '/src/Controllers/HomeController.php',
+    'Sisfin\\Controllers\\ProdutoController' => $baseDir . '/src/Controllers/ProdutoController.php',
     'Sisfin\\Controllers\\UserController' => $baseDir . '/src/Controllers/UserController.php',
+    'Sisfin\\Models\\Cliente' => $baseDir . '/src/Models/Cliente.php',
+    'Sisfin\\Models\\Fornecedor' => $baseDir . '/src/Models/Fornecedor.php',
+    'Sisfin\\Models\\Produto' => $baseDir . '/src/Models/Produto.php',
     'Sisfin\\Models\\User' => $baseDir . '/src/Models/User.php',
     'Sisfin\\Router' => $baseDir . '/src/Router.php',
+    'Sisfin\\Util\\Connection' => $baseDir . '/src/Util/Connection.php',
     'Sisfin\\Util\\TipoPessoa' => $baseDir . '/src/Util/TipoPessoa.php',
 );
