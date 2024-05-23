@@ -2,6 +2,7 @@
 
 namespace Sisfin\Models;
 
+use Sisfin\Util\Connection;
 use Sisfin\Util\TipoPessoa;
 
 class ClienteService
@@ -9,23 +10,18 @@ class ClienteService
     private $clienteRepository;
     public function __construct(){
         $this->clienteRepository = array();
-        $this->save(new Cliente(null,TipoPessoa::PESSOA_FISICA,'Markos Mueller', 'mm@mm.com'));
-        $this->save(new Cliente(null, TipoPessoa::PESSOA_FISICA, 'Marcia Regina Savagio', 'sucata@example.com'));
-        $this->save(new Cliente(null, TipoPessoa::PESSOA_JURIDICA, 'Universidade Estadual de Campinas', 'rr@example.com'));
-        $this->save(new Cliente(null, TipoPessoa::PESSOA_JURIDICA, 'Microsoft Co.', 'kk@example.com'));
-
         return $this;
     }
 
     public function getAll(): array{
         try{
-            $con = connectDB();
+            $con = Connection::make();
             $sql = 'SELECT * FROM cliente';
 
             $statement = $con->prepare($sql);
             $statement->execute();
-            $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
-            return $result;
+            $clienteRepository = $statement->fetchAll(\PDO::FETCH_ASSOC);
+            return $clienteRepository;
         }catch(\PDOException $e){
              return array();
         }
@@ -41,13 +37,13 @@ class ClienteService
 //        return $filtro;
 
         try{
-            $con = connectDB();
+            $con = Connection::make();
             $sql = 'SELECT * FROM cliente WHERE id=:id';
 
             $statement = $con->prepare($sql);
             $statement->execute([':id' => $id]);
-            $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
-            return $result;
+            $clienteRepository = $statement->fetchAll(\PDO::FETCH_ASSOC);
+            return $clienteRepository;
         }catch(\PDOException $e){
             return array();
         }
@@ -75,30 +71,30 @@ class ClienteService
 
     public function save(cliente $cliente): void
     {
+        $cn = Connection::make();
         //se for igual a null significa que é Create
         if ($cliente->getId() == null)
         {
-            //busca o ultimo ID
-            $cli = (end($this->clienteRepository));
-            if($cli) {
-                if ($cli->getId() == null)
-                    $id = 0;
-                else
-                    $id = $cli->getId();
-            }else{
-                $id=0;
-            }
-            $cliente->setId($id + 1);
-            $this->clienteRepository[] = $cliente;
+            $sql = "INSERT INTO cliente (nome, tipopessoa,  email) VALUES(:nome, :tipopessoa, :email)";
+            $statement = $cn->prepare($sql);
+            $statement->execute([
+                ':nome' => $cliente->getNome(),
+                ':tipopessoa'=>$cliente->getTipoPessoa()->value,
+                ':email'=>$cliente->getEmail()
+            ]);
+            $cliente->setId($cn->lastInsertId());
+            echo "Cliente ",$cliente->getId()," inserido!";
         }
         else {
             //senão é Update
-            for($i = 0; $i < count($this->clienteRepository); $i++) {
-                if($this->clienteRepository[$i]->getId()==$cliente->getId()){
-                    $this->clienteRepository[$i] = $cliente;
-                }
-            }
-
+            $sql = "UPDATE cliente SET nome=:nome, tipopessoa=:tipopessoa, email=:email WHERE id=:id";
+            $statement = $cn->prepare($sql);
+            $statement->execute([
+                ':id'=>$cliente->getId(),
+                ':nome' => $cliente->getNome(),
+                ':tipopessoa'=>$cliente->getTipoPessoa()->value,
+                ':email'=>$cliente->getEmail()
+            ]);
         }
     }
 

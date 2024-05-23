@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit38bba13e60481f46ccfd64f8f1c031d1
 {
+    public static $files = array (
+        '73c7bb7f2d725fa654327f67f046a30d' => __DIR__ . '/../..' . '/src/include/config.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
@@ -23,10 +27,22 @@ class ComposerStaticInit38bba13e60481f46ccfd64f8f1c031d1
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Sisfin\\Controller' => __DIR__ . '/../..' . '/src/Controller.php',
+        'Sisfin\\Controllers\\ClienteController' => __DIR__ . '/../..' . '/src/Controllers/ClienteController.php',
+        'Sisfin\\Controllers\\FornecedorController' => __DIR__ . '/../..' . '/src/Controllers/FornecedorController.php',
         'Sisfin\\Controllers\\HomeController' => __DIR__ . '/../..' . '/src/Controllers/HomeController.php',
-        'Sisfin\\Controllers\\UserController' => __DIR__ . '/../..' . '/src/Controllers/UserController.php',
-        'Sisfin\\Models\\User' => __DIR__ . '/../..' . '/src/Models/User.php',
+        'Sisfin\\Controllers\\ProdutoController' => __DIR__ . '/../..' . '/src/Controllers/ProdutoController.php',
+        'Sisfin\\Controllers\\VendaController' => __DIR__ . '/../..' . '/src/Controllers/VendaController.php',
+        'Sisfin\\Models\\Cliente' => __DIR__ . '/../..' . '/src/Models/Cliente.php',
+        'Sisfin\\Models\\ClienteService' => __DIR__ . '/../..' . '/src/Models/ClienteService.php',
+        'Sisfin\\Models\\Fornecedor' => __DIR__ . '/../..' . '/src/Models/Fornecedor.php',
+        'Sisfin\\Models\\FornecedorService' => __DIR__ . '/../..' . '/src/Models/FornecedorService.php',
+        'Sisfin\\Models\\ItemVenda' => __DIR__ . '/../..' . '/src/Models/ItemVenda.php',
+        'Sisfin\\Models\\Produto' => __DIR__ . '/../..' . '/src/Models/Produto.php',
+        'Sisfin\\Models\\ProdutoService' => __DIR__ . '/../..' . '/src/Models/ProdutoService.php',
+        'Sisfin\\Models\\Venda' => __DIR__ . '/../..' . '/src/Models/Venda.php',
+        'Sisfin\\Models\\VendaService' => __DIR__ . '/../..' . '/src/Models/VendaService.php',
         'Sisfin\\Router' => __DIR__ . '/../..' . '/src/Router.php',
+        'Sisfin\\Util\\Connection' => __DIR__ . '/../..' . '/src/Util/Connection.php',
         'Sisfin\\Util\\TipoPessoa' => __DIR__ . '/../..' . '/src/Util/TipoPessoa.php',
     );
 

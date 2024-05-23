@@ -8,7 +8,7 @@ use \PDO;
 
 class Cliente
 {
-    private int $_id;
+    private ?int $_id;
     private TipoPessoa $_tipoPessoa;
     private string $_nome;
     private string $_email;
@@ -18,7 +18,7 @@ class Cliente
      * @param string $_nome
      * @param string $_email
      */
-    public function __construct(int $_id, string $_nome, string $_email, TipoPessoa $tipoPessoa)
+    public function __construct(?int $_id, string $_nome, string $_email, TipoPessoa $tipoPessoa)
     {
         $this->_id = $_id;
         $this->_nome = $_nome;
@@ -37,7 +37,7 @@ class Cliente
         $this->_tipoPessoa = $tipoPessoa;
         return $this;
     }
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->_id;
     }
