@@ -7,22 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'Sisfin\\Controller' => $baseDir . '/src/Controller.php',
-    'Sisfin\\Controllers\\ClienteController' => $baseDir . '/src/Controllers/ClienteController.php',
-    'Sisfin\\Controllers\\FornecedorController' => $baseDir . '/src/Controllers/FornecedorController.php',
-    'Sisfin\\Controllers\\HomeController' => $baseDir . '/src/Controllers/HomeController.php',
-    'Sisfin\\Controllers\\ProdutoController' => $baseDir . '/src/Controllers/ProdutoController.php',
-    'Sisfin\\Controllers\\VendaController' => $baseDir . '/src/Controllers/VendaController.php',
-    'Sisfin\\Models\\Cliente' => $baseDir . '/src/Models/Cliente.php',
-    'Sisfin\\Models\\ClienteService' => $baseDir . '/src/Models/ClienteService.php',
-    'Sisfin\\Models\\Fornecedor' => $baseDir . '/src/Models/Fornecedor.php',
-    'Sisfin\\Models\\FornecedorService' => $baseDir . '/src/Models/FornecedorService.php',
-    'Sisfin\\Models\\ItemVenda' => $baseDir . '/src/Models/ItemVenda.php',
-    'Sisfin\\Models\\Produto' => $baseDir . '/src/Models/Produto.php',
-    'Sisfin\\Models\\ProdutoService' => $baseDir . '/src/Models/ProdutoService.php',
-    'Sisfin\\Models\\Venda' => $baseDir . '/src/Models/Venda.php',
-    'Sisfin\\Models\\VendaService' => $baseDir . '/src/Models/VendaService.php',
-    'Sisfin\\Router' => $baseDir . '/src/Router.php',
-    'Sisfin\\Util\\Connection' => $baseDir . '/src/Util/Connection.php',
-    'Sisfin\\Util\\TipoPessoa' => $baseDir . '/src/Util/TipoPessoa.php',
 );

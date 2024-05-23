@@ -41,7 +41,8 @@ class ClienteController  extends Controller
         $id = isset($_GET['id'])?$_GET['id']:null;
         $nome = $_GET['nome'];
         $email = $_GET['email'];
-        $this->clienteRepository->save(new Cliente($id, $nome, $email,Util\TipoPessoa::PESSOA_FISICA));
+        $tipoPessoa = $_GET['tipoPessoa'];
+        $this->clienteRepository->save(new Cliente($id, $nome, $email, $tipoPessoa));
     }
 
 }

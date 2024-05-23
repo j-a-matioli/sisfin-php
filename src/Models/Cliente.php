@@ -9,7 +9,7 @@ use \PDO;
 class Cliente
 {
     private ?int $_id;
-    private TipoPessoa $_tipoPessoa;
+    private int $_tipoPessoa;
     private string $_nome;
     private string $_email;
 
@@ -18,7 +18,7 @@ class Cliente
      * @param string $_nome
      * @param string $_email
      */
-    public function __construct(?int $_id, string $_nome, string $_email, TipoPessoa $tipoPessoa)
+    public function __construct(?int $_id, string $_nome, string $_email, int $tipoPessoa)
     {
         $this->_id = $_id;
         $this->_nome = $_nome;
@@ -27,12 +27,12 @@ class Cliente
     }
 
 
-    public function getTipoPessoa(): TipoPessoa
+    public function getTipoPessoa(): int
     {
         return $this->_tipoPessoa;
     }
 
-    public function setTipoPessoa(TipoPessoa $tipoPessoa): Cliente
+    public function setTipoPessoa(int $tipoPessoa): Cliente
     {
         $this->_tipoPessoa = $tipoPessoa;
         return $this;

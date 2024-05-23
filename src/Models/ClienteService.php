@@ -79,11 +79,10 @@ class ClienteService
             $statement = $cn->prepare($sql);
             $statement->execute([
                 ':nome' => $cliente->getNome(),
-                ':tipopessoa'=>$cliente->getTipoPessoa()->value,
+                ':tipopessoa'=>$cliente->getTipoPessoa(),
                 ':email'=>$cliente->getEmail()
             ]);
             $cliente->setId($cn->lastInsertId());
-            echo "Cliente ",$cliente->getId()," inserido!";
         }
         else {
             //senão é Update
@@ -96,6 +95,7 @@ class ClienteService
                 ':email'=>$cliente->getEmail()
             ]);
         }
+        header("Location: /cliente");
     }
 
     public function delete(int $cliId): void
