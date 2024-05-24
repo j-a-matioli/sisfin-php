@@ -28,14 +28,6 @@ class ClienteService
     }
 
     public function getById(int $id): array{
-//        $filtro = array();
-//
-//        $filtro = array_filter($this->clienteRepository, function($cliente) use ($id){
-//            return $cliente->getId()==$id;
-//        });
-//
-//        return $filtro;
-
         try{
             $con = Connection::make();
             $sql = 'SELECT * FROM cliente WHERE id=:id';
@@ -49,26 +41,6 @@ class ClienteService
         }
 
     }
-
-    public function getByClienteId(int $id): array{
-        $filtro = array();
-
-        $filtro = array_filter($this->clienteRepository, function($cliente) use ($id){
-            return $cliente->getCliente()->getId()==$id;
-        });
-
-        return $filtro;
-    }
-
-    public function get(clienteId $id): cliente
-    {
-        $filtro = array_filter($this->clienteRepository, function($cliente) use ($id){
-            return $cliente->getId()==$id;
-        });
-
-        return $filtro;
-    }
-
     public function save(cliente $cliente): void
     {
         $cn = Connection::make();
@@ -91,17 +63,27 @@ class ClienteService
             $statement->execute([
                 ':id'=>$cliente->getId(),
                 ':nome' => $cliente->getNome(),
-                ':tipopessoa'=>$cliente->getTipoPessoa()->value,
+                ':tipopessoa'=>$cliente->getTipoPessoa(),
                 ':email'=>$cliente->getEmail()
             ]);
         }
         header("Location: /cliente");
     }
 
-    public function delete(int $cliId): void
+    public function delete(int $id): void
     {
-        $this->clienteRepository = array_filter($this->clienteRepository, function($p) use($cliId) {
-            return $p->getId() !== $cliId;
-        });
+        try {
+            $cn = Connection::make();
+            if ($id != null) {
+                $sql = "DELETE FROM cliente WHERE id=:id";
+                $statement = $cn->prepare($sql);
+                $statement->bindParam(":id", $id);
+                $statement->execute();
+            }
+        }catch (\PDOException $e){
+            die($e->getMessage());
+        } finally {
+            header("Location: /cliente");
+        }
     }
 }

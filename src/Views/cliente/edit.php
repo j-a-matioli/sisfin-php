@@ -12,17 +12,27 @@
 <body class="container">
 <h1>.:| Cadastro de Clientes |:.</h1>
 
+<?php
+if(isset($cliente)){
+    $id = $cliente[0]["id"];
+    $nome = $cliente[0]["nome"];
+    $email = $cliente[0]["email"];
+    $tipopessoa = $cliente[0]["tipopessoa"];
+}
+
+?>
+
 <form action="/cliente/insert/" method="get">
     <div class="form-group">
-        <input type="hidden" class="form-control" id="id" name="id">
+        <input type="hidden" class="form-control" id="id" name="id" value="<?=$id;?>">
     </div>
     <div class="form-group">
         <label for="nome">Nome:</label>
-        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" >
+        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" value="<?=$nome;?>">
     </div>
     <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+        <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<?=$email;?>">
     </div>
 
     <label>Tipo Pessoa:</label>
@@ -43,42 +53,10 @@
     <br>
     <div class="text-center">
         <button type="submit" class="btn btn-primary">Atualizar</button>
-     </div>
+    </div>
 </form>
 <br>
-
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Email</th>
-        <th scope="col">Tipo</th>
-        <th scope="col"> </th>
-        <th scope="col"> </th>
-    </tr>
-    </thead>
-    <tbody>
-
-          <?php foreach ($clientes as $cliente): ?>
-                  <tr>
-                      <th scope="row"><?= $cliente["id"] ?></th>
-                      <td><?= $cliente["nome"] ?></td>
-                      <td><?= $cliente["email"] ?></td>
-                      <td><?php
-                          echo $cliente["tipopessoa"]==1?"Pessoa Física":"Pessoa Jurídica"
-                          ?></td>
-                      <td><span>
-                              <a class="btn btn-danger" href="/cliente/delete/?id=<?= $cliente["id"] ?>">
-                              <i class="fas fa-minus-circle"></i></span></a></td>
-                      <td><span>
-                              <a class="btn btn-warning" href="/cliente/edit/?id=<?= $cliente["id"] ?>">
-                              <i class="fas fa-edit"></i></span></td>
-                  </tr>
-        <?php endforeach; ?>
-    </tbody>
-    </table>
-    <br>
-    <a href="/">Home</a>
+<br>
+<a href="/cliente">Voltar</a>
 </body>
 </html>

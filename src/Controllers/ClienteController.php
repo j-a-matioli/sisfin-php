@@ -38,11 +38,22 @@ class ClienteController  extends Controller
 
     public function insertCliente()
     {
-        $id = isset($_GET['id'])?$_GET['id']:null;
+        $id = empty($_GET['id'])?null:$_GET['id'];
         $nome = $_GET['nome'];
         $email = $_GET['email'];
-        $tipoPessoa = $_GET['tipoPessoa'];
+        $tipoPessoa = $_GET['tipopessoa'];
         $this->clienteRepository->save(new Cliente($id, $nome, $email, $tipoPessoa));
+    }
+    public function editCliente()
+    {
+        $id = isset($_GET['id'])?$_GET['id']:0;
+        $dados = $this->clienteRepository->getById($id);
+        $this->render('cliente/edit', ['cliente' =>  $dados]);
+    }
+    public function deleteCliente()
+    {
+        $id = isset($_GET['id'])?$_GET['id']:null;
+        $this->clienteRepository->delete($id);
     }
 
 }
