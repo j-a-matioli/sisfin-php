@@ -8,6 +8,7 @@ use Sisfin\Controllers\VendaController;
 
 $router = new Router();
 
+
 $router->addRoute('/', HomeController::class, 'index');
 $router->addRoute('/cliente', ClienteController::class, 'index');
 $router->addRoute('/cliente/id', ClienteController::class, 'findByClienteId');

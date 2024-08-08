@@ -25,7 +25,7 @@ class Router {
             $controller = new $controller();
             $controller->$action();
         } else {
-            throw new \Exception("Nenhuma rota enconrada para a URI: $uri");
+            throw new \Exception("Nenhuma rota encontrada para a URI: $uri");
         }
     }
 }

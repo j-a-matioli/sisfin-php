@@ -67,7 +67,6 @@ class ClienteService
                 ':email'=>$cliente->getEmail()
             ]);
         }
-        header("Location: /cliente");
     }
 
     public function delete(int $id): void
