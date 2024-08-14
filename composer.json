@@ -16,6 +16,8 @@
         "components/jquery": "^3.2",
         "twbs/bootstrap": "4.0.0",
         "slim/slim": "4.*",
-        "respect/validation": "^2.3"
+        "respect/validation": "^2.3",
+        "mpdf/mpdf": "^8.2",
+        "phpmailer/phpmailer": "^6.9"
     }
 }

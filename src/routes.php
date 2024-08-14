@@ -15,6 +15,7 @@ $router->addRoute('/cliente/id', ClienteController::class, 'findByClienteId');
 $router->addRoute('/cliente/insert/', ClienteController::class, 'insertCliente');
 $router->addRoute('/cliente/delete/', ClienteController::class, 'deleteCliente');
 $router->addRoute('/cliente/edit/', ClienteController::class, 'editCliente');
+$router->addRoute('/relatorio/cliente/', ClienteController::class, 'relatorioCliente');
 $router->addRoute('/fornecedor', FornecedorController::class, 'index');
 $router->addRoute('/fornecedor/produtos', ProdutoController::class, 'produtosPorFornecedor');
 $router->addRoute('/produto', ProdutoController::class, 'index');

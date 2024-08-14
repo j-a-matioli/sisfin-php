@@ -2,11 +2,13 @@
 
 namespace Sisfin\Controllers;
 
+use Exception;
 use Sisfin\Controller;
 use Sisfin\Models\ClienteService;
 use Sisfin\Models\Cliente;
 use Sisfin\Models\ClienteValidator;
-use Sisfin\Util;
+use Mpdf\Mpdf;
+use Sisfin\Util\EnviaEmail;
 
 class ClienteController  extends Controller
 {
@@ -61,6 +63,23 @@ class ClienteController  extends Controller
 
         //se chegar aqui é porque os dados foram validados
         $this->clienteRepository->save($cliente);
+
+        $url = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]";
+        $escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
+        $corpoEmail = "Olá <b>".$cliente->getNome()."</b>, sua conta no SisFin foi criada com sucesso";
+        $corpoEmail .= "<br>Clique <a href=$escaped_url>aqui</a> para começar a explorar o sistema!";
+        $email = new EnviaEmail();
+        $email->setDestino($cliente->getEmail());
+        $email->setAssunto('Conta criada no SisFin');
+        $email->setCorpo($corpoEmail);
+        try{
+            $email->Envia();
+        }catch(Exception $e)
+        {
+            echo "Falha ao enviar email de criação da conta!";
+            die;
+        }
+
         header("Location: /cliente");
     }
     public function editCliente()
@@ -86,4 +105,25 @@ class ClienteController  extends Controller
         $this->clienteRepository->delete($id);
     }
 
+    public function relatorioCliente()
+    {
+        $html="";
+        $mpdf = new \Mpdf\Mpdf([
+            'mode' => 'utf-8',
+            'format' => [190, 236],
+            'orientation' => 'P'
+        ]);
+
+        $html = "<H1>Relatório de Clientes</H1>";
+        $html .= "<table border='1'>";
+        foreach ($this->getAll() as $cliente) {
+            $html .= "<tr>";
+            $html .= "<td>".$cliente['nome']."</td><td>".$cliente['email']."</td>";
+            $html .= "</tr>";
+        }
+        $html .= "</table>";
+        $mpdf->WriteHTML($html);
+        $mpdf->Output("RelatorioClientes.pdf","D");
+        return;
+    }
 }

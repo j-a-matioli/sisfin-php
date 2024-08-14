@@ -12,10 +12,11 @@
 
 <body class="container">
     <h1>.:| SisFin - Sistema de Gestão Financeira |:.</h1>
-    <h4>[<a href="/cliente">Lista de Clientes</a>]</h4>
-    <h4>[<a href="/fornecedor">Lista de Fornecedores</a>]</h4>
-    <h4>[<a href="/produto">Lista de Produtos</a>]</h4>
-    <h4>[<a href="/venda">Listagem de Vendas</a>]</h4>
+    <h4>[<a href="/cliente">Cadastro de Clientes</a>]</h4>
+    <h4>[<a href="/relatorio/cliente/">Relatorio de Clientes</a>]</h4>
+    <h4>[<a href="/fornecedor">Cadastro de Fornecedores</a>]</h4>
+    <h4>[<a href="/produto">Cadastro de Produtos</a>]</h4>
+    <h4>[<a href="/venda">Cadastro de Vendas</a>]</h4>
 </body>
 
 </html>
